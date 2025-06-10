@@ -1,0 +1,148 @@
+:root {
+  --primary-color: #632616; /* Vino tinto */
+  --secondary-color: #f5f5dc; /* Beige */
+  --accent-color: #964B00; /* Marrón claro */
+  --light-color: #F0E4CC; /* Beige claro */
+  --dark-color: #452B1F; /* Marrón oscuro */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 70px;
+  color: #333;
+  background-color: var(--light-color);
+}
+
+.hero-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../assets/images/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+}
+
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--secondary-color);
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background-color: var(--primary-color);
+}
+
+.navbar.scrolled {
+  background-color: var(--dark-color) !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.section-header h2 {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+  color: var(--primary-color);
+}
+
+.section-header h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: var(--accent-color);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--dark-color);
+  border-color: var(--dark-color);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate__animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.animate__fadeIn {
+  animation-name: fadeIn;
+}
+
+.animate__fadeInUp {
+  animation-name: fadeInUp;
+}
+
+/* Dashboard styles */
+.sidebar {
+  min-height: 100vh;
+  background-color: var(--dark-color);
+  color: white;
+}
+
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 5px;
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+.sidebar .nav-link:hover, .sidebar .nav-link.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.sidebar .nav-link i {
+  margin-right: 10px;
+}
+
+.card-stat {
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  background-color: var(--secondary-color);
+}
+
+.card-stat:hover {
+  transform: translateY(-5px);
+}
+
+/* Login page */
+.login-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  background-color: var(--secondary-color);
+}
+
+.login-logo {
+  width: 150px;
+  margin-bottom: 30px;
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(99, 38, 22, 0.25);
+}
