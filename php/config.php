@@ -1,16 +1,38 @@
 <?php
-// Configuración de la base de datos
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'Nacional_Tapizados');
+$servidor = "localhost";
+$usuario = "root";
+$clave = "";
+$base_datos = "bd_proyecto";
 
-// Conexión a la base de datos
-try {
-    $db = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $db->exec("set names utf8");
-} catch(PDOException $e) {
-    die("Error de conexión: " . $e->getMessage());
+$conn = new mysqli($servidor, $usuario, $clave, $base_datos);
+if ($conn->connect_error) {
+    die("Conexion fallida: " . $conn->connect_error());
+} else {
+    echo "Conexión exitosa a la base de datos.";
 }
-?>
+
+if (isset($_POST['guardar_cliente'])) {
+    $nombre = $_POST['nombre'];
+    $correo = $_POST['correo'];
+    $telefono = $_POST['telefono'];
+    $direccion = $_POST['direccion'];
+    $notas = $_POST['notas'];
+
+    $sql = "INSERT INTO clientes (nombre_cliente, correo_cliente,telefono_cliente,direccion_cliente,notas_cliente) VALUES ('$nombre', '$correo', '$telefono', '$direccion', '$notas')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Cliente guardado correctamente";
+    } else {
+        echo "Error al guardar cliente: " . $conn->error;
+    }
+} elseif (isset($_POST['iniciar_sesion'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];}
+
+    $sql = "SELECT * FROM usuarios WHERE username_usuario = '$username' AND contrasena_usuario = '$password'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        echo "Inicio de sesión correcto";
+    } else {
+        echo "Usuario o contraseña incorrecta";}
