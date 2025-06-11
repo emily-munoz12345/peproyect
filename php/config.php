@@ -1,38 +1,46 @@
 <?php
-$servidor = "localhost";
-$usuario = "root";
-$clave = "";
-$base_datos = "bd_proyecto";
+    include("conexion.php");
 
-$conn = new mysqli($servidor, $usuario, $clave, $base_datos);
-if ($conn->connect_error) {
-    die("Conexion fallida: " . $conn->connect_error());
-} else {
-    echo "Conexión exitosa a la base de datos.";
-}
+            $nombre = trim($_POST['nombre']);
+            $emai = trim($_POST['email']);
+            $tel = trim($_POST['tel']);
+            $direccion = trim($_POST['direccion']);
+            $notas = trim($_POST['notas']);
+            $fecha = date("d/m/y");
 
-if (isset($_POST['guardar_cliente'])) {
-    $nombre = $_POST['nombre'];
-    $correo = $_POST['correo'];
-    $telefono = $_POST['telefono'];
-    $direccion = $_POST['direccion'];
-    $notas = $_POST['notas'];
-
-    $sql = "INSERT INTO clientes (nombre_cliente, correo_cliente,telefono_cliente,direccion_cliente,notas_cliente) VALUES ('$nombre', '$correo', '$telefono', '$direccion', '$notas')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Cliente guardado correctamente";
-    } else {
-        echo "Error al guardar cliente: " . $conn->error;
-    }
-} elseif (isset($_POST['iniciar_sesion'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];}
-
-    $sql = "SELECT * FROM usuarios WHERE username_usuario = '$username' AND contrasena_usuario = '$password'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        echo "Inicio de sesión correcto";
-    } else {
-        echo "Usuario o contraseña incorrecta";}
+            $consulta = "INSERT INTO clientes(nombre_cliente,correo_cliente,telefono_cliente,direccion_cliente,notas_cliente,fecha_registro)
+            VALUES('$nombre','$emai','$tel','$direccion','$notas','$fecha')";
+            $resultado = mysql_query($conex,$consulta);
+       /* if (isset($_POST['ingresar'])){
+        if(
+            strlen($_POST['nombre']) >= 1 &&
+            strlen($_POST['email']) >= 1 &&
+            strlen($_POST['tel']) >= 1 &&
+            strlen($_POST['direccion']) >= 1 &&
+            strlen($_POST['notas']) >= 1 &&
+        ){
+            $nombre = trim($_POST['nombre']);
+            $emai = trim($_POST['email']);
+            $tel = trim($_POST['tel']);
+            $direccion = trim($_POST['direccion']);
+            $notas = trim($_POST['notas']);
+            $fecha = date("d/m/y");
+            $consulta = "INSERT INTO clientes(nombre_cliente,correo_cliente,telefono_cliente,direccion_cliente,notas_cliente,fecha_registro)
+            VALUES('$nombre','$emai','$tel','$direccion','$notas','$fecha')";
+            $resultado = mysql_query($conex,$consulta);
+            if ($resultado){
+                ?>
+                <h3 class="seccess">Tu registro se ha completado</h3>
+                <?
+            }
+            else {
+                ?>
+                <h3 class="error">Ocurrio un error</h3>
+                <?
+            }
+            }else{
+                ?>
+                <h3 class="error">Llena todos los campos</h3>
+                <?}
+    }*/
+?> 
