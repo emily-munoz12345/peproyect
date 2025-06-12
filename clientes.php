@@ -13,7 +13,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">Nacional de Tapizados</a>
+        <a class="navbar-brand" href="index.php">Nacional de Tapizados</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,26 +23,27 @@
                     <a class="nav-link" href="index.html">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="trabajos.html">Trabajos Realizados</a>
+                    <a class="nav-link" href="trabajos.php">Trabajos Realizados</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="materiales.html">Materiales</a>
+                    <a class="nav-link" href="materiales.php">Materiales</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="tecnicas.html">Técnicas</a>
+                    <a class="nav-link" href="tecnicas.php">Técnicas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">inicio de Sesión</a>
+                    <a class="nav-link" href="login.php">Inicio de Sesión</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="clientes.html">Clientes</a>
+                    <a class="nav-link" href="clientes.php">Clientes</a>
                 </li>
                 <li class="nav-item">
-                    <Cotizaciones class="nav-link" href="cotizaciones.html">Cotizaciones</a>
+                    <a class="nav-link" href="cotizaciones.php">Cotizaciones</a>
                 </li>
             </ul>
         </div>
-    </nav><body class="bg-light">
+    </nav>
+<body class="bg-light">
     <div class="container py-5">
         <div class="row justify-content-center">
             <div class="col-md-8 col-lg-6">
@@ -51,7 +52,7 @@
                         <h2 class="fw-bold">Registro de Clientes</h2>
                         <p class="text-muted">Ingresa los datos del cliente</p>
                     </div>
-                    <form id="loginForm" action="php/config.php" method="POST">
+                    <form id="loginForm" action="php/conexion.php" method="POST">
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre</label>
                             <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -61,7 +62,7 @@
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="mb-4">
-                            <label for="tel" class="form-label">Telefono</label>
+                            <label for="tel" class="form-label">Teléfono</label>
                             <input type="number" class="form-control" id="tel" name="tel" required>
                         </div>
                         <div class="mb-4">
